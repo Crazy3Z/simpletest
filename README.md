@@ -54,3 +54,4 @@ pytest -s --env private_debug #private_debug是自定义的环境配置名称
 如果需要数据准备和数据清理需要在conf.ini文件中设置相应的开关和数据准备的Sql语句，没有需求则可以跳过。
 
 ### 流程图
+![image](report/pic.png)

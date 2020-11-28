@@ -1,0 +1,82 @@
+"查询":
+  method : get
+  uri : /name
+  requestData :
+    staffName : 张三
+  expectcode : 200
+  resultcheck : '"status":"1"'
+  login : false      #获取cookie开关
+
+"修改":
+  method : put
+  uri : /updatename
+  header : {
+    Content-Type: application/json
+  }
+  requestData : {
+    "id": 1,
+    "Name": "20200916001",
+    "idList": [
+      "l1",
+      "l2"
+    ],
+    "classList": [
+      0,
+      3
+    ]
+  }
+  exceptcode : 200
+  resultcheck: {
+    "success": true,
+    "status": "1",
+    "message": "请求成功",
+    "data": null
+  }
+  others : {
+             "name":"添加",  #case名称
+             "query_str":"name",  #提取的关键字
+             "rename":"test"     #请求的关键字
+  } #需要请求依赖的信息
+
+
+"添加":
+  method : post
+  uri : /savename
+  header:
+    Content-Type : application/json
+  requestData : {
+    "Name": "20201101",
+    "idList": [
+      "l1",
+      "l2"
+    ],
+    "courseTypeList": [
+      0,
+      3
+    ]
+  }
+  resultcheck : {
+    "success": True,
+    "status": "1",
+    "message": "请求成功",
+    "data": {
+        "name":"test"
+    }
+  }
+
+"删除":
+  method : delete
+  uri : /deletename
+  header:
+    Content-Type : multipart/form-data
+  requestData:
+    id : "1"
+  resultcheck : {
+    "success": True,
+    "status": "1",
+    "message": "请求成功",
+    "data": "None"
+  }
+
+
+

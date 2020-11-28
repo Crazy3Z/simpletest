@@ -1,0 +1,88 @@
+2020-11-28 23:56:47 data.py[line:44] [INFO] : 加载 /Users/zuzhengze/PycharmProjects/script/apitest/conf/config.ini 的ini文件
+2020-11-28 23:56:47 data.py[line:48] [DEBUG] : 读取到ini数据中的data ==>> {'private_debug': OrderedDict([('tester', 'xx'), ('environment', 'debug'), ('version', '1.0'), ('host', 'http://localhost:8000'), ('loginhost', 'test'), ('logininfo', '{"name":"test-01", "password":"test", "auth":"admin" }')]), 'online_release': OrderedDict([('tester', 'xx'), ('environment', 'release'), ('version', '1.0'), ('host', 'http://192.168.1.101')]), 'header': OrderedDict([('connection', 'keep-alive'), ('pragma', 'no-cache'), ('cache-control', 'no-cache'), ('upgrade-insecure-requests', '1'), ('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36'), ('accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'), ('accept-encoding', 'gzip, deflate, br'), ('accept-language', 'zh-CN,zh;q=0.9')]), 'cookie': OrderedDict([('url', 'test'), ('username', 'username'), ('password', 'testpwd')]), 'mysql': OrderedDict([('host', 'localhost'), ('port', '3306'), ('user', 'root'), ('password', '******'), ('database', '******'), ('clear_need', 'True'), ('status', 'closed')]), 'pre_sql': OrderedDict([('sql1', 'create table test (id INT(10),name VARCHAR(100) NOT NULL,age INT NOT NULL);')]), 'clear_sql': OrderedDict([('sql1', 'drop table test;')])}
+2020-11-28 23:56:47 casePrepare.py[line:56] [INFO] : 解析配置信息一共有 7 个，分别是 dict_keys(['private_debug', 'online_release', 'header', 'cookie', 'mysql', 'pre_sql', 'clear_sql'])
+2020-11-28 23:56:47 data.py[line:26] [INFO] : 加载 /Users/zuzhengze/PycharmProjects/script/apitest/testcase/case.yaml 的yaml文件
+2020-11-28 23:56:47 data.py[line:29] [DEBUG] : 读取到yaml数据中的data ==>> {'查询': {'method': 'get', 'uri': '/name', 'requestData': {'staffName': '张三'}, 'expectcode': 200, 'resultcheck': '"status":"1"', 'login': False}, '修改': {'method': 'put', 'uri': '/updatename', 'header': {'Content-Type': 'application/json'}, 'requestData': {'id': 1, 'Name': '20200916001', 'idList': ['l1', 'l2'], 'classList': [0, 3]}, 'exceptcode': 200, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': None}, 'others': {'name': '添加', 'query_str': 'name', 'rename': 'test'}}, '添加': {'method': 'post', 'uri': '/savename', 'header': {'Content-Type': 'application/json'}, 'requestData': {'Name': '20201101', 'idList': ['l1', 'l2'], 'courseTypeList': [0, 3]}, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': {'name': 'test'}}}, '删除': {'method': 'delete', 'uri': '/deletename', 'header': {'Content-Type': 'multipart/form-data'}, 'requestData': {'id': '1'}, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': 'None'}}}
+2020-11-28 23:56:47 casePrepare.py[line:40] [INFO] : 解析用例文件 case.yaml 存在 4 条case 分别是 dict_keys(['查询', '修改', '添加', '删除'])
+2020-11-28 23:56:47 casePrepare.py[line:69] [INFO] : 一共解析到4个测试用例
+2020-11-28 23:56:47 casePrepare.py[line:28] [DEBUG] : 解析用例文件后一共发现3个单接口测试用例，1个关联接口测试用例
+2020-11-28 23:56:48 conftest.py[line:34] [INFO] : 整体测试开始
+2020-11-28 23:56:48 data.py[line:80] [INFO] : 数据库开关关闭，不需要连接数据库，即将开始测试，如果需要配置数据库打开数据库配置开关请更新conf/config.ini下 mysql/status:open/closed
+2020-11-28 23:56:48 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:56:48 test_api.py[line:30] [INFO] : 正在测试单接口 查询
+2020-11-28 23:56:48 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/name, 请求方式：get, 参数：{'staffName': '张三'} ,请求头：{'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:56:48 connectionpool.py[line:231] [DEBUG] : Starting new HTTP connection (1): localhost:8000
+2020-11-28 23:56:48 Resquest.py[line:49] [ERROR] : 报错的url link是 http://localhost:8000/name
+2020-11-28 23:56:48 Resquest.py[line:50] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /name?staffName=%E5%BC%A0%E4%B8%89 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102c7f898>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:56:48 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:56:48 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.080 数据仅供参考
+2020-11-28 23:56:48 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:56:48 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:56:48 test_api.py[line:30] [INFO] : 正在测试单接口 添加
+2020-11-28 23:56:48 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/savename, 请求方式：post, 参数：{"Name": "20201101", "idList": ["l1", "l2"], "courseTypeList": [0, 3]} ,请求头：{'Content-Type': 'application/json', 'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:56:48 connectionpool.py[line:231] [DEBUG] : Starting new HTTP connection (1): localhost:8000
+2020-11-28 23:56:48 Resquest.py[line:72] [ERROR] : 报错的url link是 http://localhost:8000/savename
+2020-11-28 23:56:48 Resquest.py[line:73] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /savename (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102ca4ac8>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:56:48 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:56:48 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.008 数据仅供参考
+2020-11-28 23:56:48 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:56:48 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:56:48 test_api.py[line:30] [INFO] : 正在测试单接口 删除
+2020-11-28 23:56:48 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/deletename, 请求方式：delete, 参数：{'id': '1'} ,请求头：{'Content-Type': 'multipart/form-data', 'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:56:48 connectionpool.py[line:231] [DEBUG] : Starting new HTTP connection (1): localhost:8000
+2020-11-28 23:56:48 Resquest.py[line:102] [ERROR] : 报错的url link是 http://localhost:8000/deletename
+2020-11-28 23:56:48 Resquest.py[line:103] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /deletename (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x102cc1748>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:56:48 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:56:48 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.007 数据仅供参考
+2020-11-28 23:56:48 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:56:48 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:56:48 test_api.py[line:46] [INFO] : 正在测试关联接口 修改
+2020-11-28 23:56:48 test_api.py[line:54] [ERROR] : 没有在单接口用例集中找到依赖的参数接口，请按照单接口用例格式在yaml文件中添加请求信息
+2020-11-28 23:56:48 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.005 数据仅供参考
+2020-11-28 23:56:48 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:56:48 data.py[line:150] [INFO] : 数据库开关未打开， 不需要处理数据库
+2020-11-28 23:56:48 conftest.py[line:38] [INFO] : 整体测试结束
+2020-11-28 23:59:22 data.py[line:44] [INFO] : 加载 /Users/zuzhengze/PycharmProjects/script/apitest/conf/config.ini 的ini文件
+2020-11-28 23:59:22 data.py[line:48] [DEBUG] : 读取到ini数据中的data ==>> {'private_debug': OrderedDict([('tester', 'xx'), ('environment', 'debug'), ('version', '1.0'), ('host', 'http://localhost:8000'), ('loginhost', 'test'), ('logininfo', '{"name":"test-01", "password":"test", "auth":"admin" }')]), 'online_release': OrderedDict([('tester', 'xx'), ('environment', 'release'), ('version', '1.0'), ('host', 'http://192.168.1.101')]), 'header': OrderedDict([('connection', 'keep-alive'), ('pragma', 'no-cache'), ('cache-control', 'no-cache'), ('upgrade-insecure-requests', '1'), ('user-agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36'), ('accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'), ('accept-encoding', 'gzip, deflate, br'), ('accept-language', 'zh-CN,zh;q=0.9')]), 'cookie': OrderedDict([('url', 'test'), ('username', 'username'), ('password', 'testpwd')]), 'mysql': OrderedDict([('host', 'localhost'), ('port', '3306'), ('user', 'root'), ('password', '******'), ('database', '******'), ('clear_need', 'True'), ('status', 'closed')]), 'pre_sql': OrderedDict([('sql1', 'create table test (id INT(10),name VARCHAR(100) NOT NULL,age INT NOT NULL);')]), 'clear_sql': OrderedDict([('sql1', 'drop table test;')])}
+2020-11-28 23:59:22 casePrepare.py[line:56] [INFO] : 解析配置信息一共有 7 个，分别是 dict_keys(['private_debug', 'online_release', 'header', 'cookie', 'mysql', 'pre_sql', 'clear_sql'])
+2020-11-28 23:59:22 data.py[line:26] [INFO] : 加载 /Users/zuzhengze/PycharmProjects/script/apitest/testcase/case.yaml 的yaml文件
+2020-11-28 23:59:22 data.py[line:29] [DEBUG] : 读取到yaml数据中的data ==>> {'查询': {'method': 'get', 'uri': '/name', 'requestData': {'staffName': '张三'}, 'expectcode': 200, 'resultcheck': '"status":"1"', 'login': False}, '修改': {'method': 'put', 'uri': '/updatename', 'header': {'Content-Type': 'application/json'}, 'requestData': {'id': 1, 'Name': '20200916001', 'idList': ['l1', 'l2'], 'classList': [0, 3]}, 'exceptcode': 200, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': None}, 'others': {'name': '添加', 'query_str': 'name', 'rename': 'test'}}, '添加': {'method': 'post', 'uri': '/savename', 'header': {'Content-Type': 'application/json'}, 'requestData': {'Name': '20201101', 'idList': ['l1', 'l2'], 'courseTypeList': [0, 3]}, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': {'name': 'test'}}}, '删除': {'method': 'delete', 'uri': '/deletename', 'header': {'Content-Type': 'multipart/form-data'}, 'requestData': {'id': '1'}, 'resultcheck': {'success': True, 'status': '1', 'message': '请求成功', 'data': 'None'}}}
+2020-11-28 23:59:22 casePrepare.py[line:40] [INFO] : 解析用例文件 case.yaml 存在 4 条case 分别是 dict_keys(['查询', '修改', '添加', '删除'])
+2020-11-28 23:59:22 casePrepare.py[line:69] [INFO] : 一共解析到4个测试用例
+2020-11-28 23:59:22 casePrepare.py[line:28] [DEBUG] : 解析用例文件后一共发现3个单接口测试用例，1个关联接口测试用例
+2020-11-28 23:59:22 conftest.py[line:34] [INFO] : 整体测试开始
+2020-11-28 23:59:22 data.py[line:80] [INFO] : 数据库开关关闭，不需要连接数据库，即将开始测试，如果需要配置数据库打开数据库配置开关请更新conf/config.ini下 mysql/status:open/closed
+2020-11-28 23:59:22 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:59:22 test_api.py[line:30] [INFO] : 正在测试单接口 删除
+2020-11-28 23:59:22 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/deletename, 请求方式：delete, 参数：{'id': '1'} ,请求头：{'Content-Type': 'multipart/form-data', 'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:59:22 connectionpool.py[line:208] [DEBUG] : Starting new HTTP connection (1): localhost
+2020-11-28 23:59:22 Resquest.py[line:102] [ERROR] : 报错的url link是 http://localhost:8000/deletename
+2020-11-28 23:59:22 Resquest.py[line:103] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /deletename (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103b5e978>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:59:22 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:59:22 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.108 数据仅供参考
+2020-11-28 23:59:22 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:59:22 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:59:22 test_api.py[line:30] [INFO] : 正在测试单接口 添加
+2020-11-28 23:59:22 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/savename, 请求方式：post, 参数：{"Name": "20201101", "idList": ["l1", "l2"], "courseTypeList": [0, 3]} ,请求头：{'Content-Type': 'application/json', 'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:59:22 connectionpool.py[line:208] [DEBUG] : Starting new HTTP connection (1): localhost
+2020-11-28 23:59:22 Resquest.py[line:72] [ERROR] : 报错的url link是 http://localhost:8000/savename
+2020-11-28 23:59:22 Resquest.py[line:73] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /savename (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103b7fd30>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:59:22 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:59:22 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.008 数据仅供参考
+2020-11-28 23:59:22 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:59:22 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:59:22 test_api.py[line:30] [INFO] : 正在测试单接口 查询
+2020-11-28 23:59:22 Resquest.py[line:33] [DEBUG] : 即将测试链接：http://localhost:8000/name, 请求方式：get, 参数：{'staffName': '张三'} ,请求头：{'connection': 'keep-alive', 'pragma': 'no-cache', 'cache-control': 'no-cache', 'upgrade-insecure-requests': '1', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.80 Safari/537.36', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9', 'accept-encoding': 'gzip, deflate, br', 'accept-language': 'zh-CN,zh;q=0.9'}, cookie: None 
+2020-11-28 23:59:22 connectionpool.py[line:208] [DEBUG] : Starting new HTTP connection (1): localhost
+2020-11-28 23:59:22 Resquest.py[line:49] [ERROR] : 报错的url link是 http://localhost:8000/name
+2020-11-28 23:59:22 Resquest.py[line:50] [ERROR] : 异常错误：HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /name?staffName=%E5%BC%A0%E4%B8%89 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x103c18c50>: Failed to establish a new connection: [Errno 61] Connection refused'))
+2020-11-28 23:59:22 Resquest.py[line:124] [ERROR] : response是空，请检查 test case 或者接口服务器
+2020-11-28 23:59:22 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.008 数据仅供参考
+2020-11-28 23:59:22 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:59:22 conftest.py[line:46] [INFO] : ============================Test START========================
+2020-11-28 23:59:22 test_api.py[line:46] [INFO] : 正在测试关联接口 修改
+2020-11-28 23:59:22 test_api.py[line:54] [ERROR] : 没有在单接口用例集中找到依赖的参数接口，请按照单接口用例格式在yaml文件中添加请求信息
+2020-11-28 23:59:22 conftest.py[line:50] [INFO] : timer:本次测试耗时共计 0.004 数据仅供参考
+2020-11-28 23:59:22 conftest.py[line:51] [INFO] : ============================Test END==========================
+2020-11-28 23:59:22 data.py[line:150] [INFO] : 数据库开关未打开， 不需要处理数据库
+2020-11-28 23:59:22 conftest.py[line:38] [INFO] : 整体测试结束
